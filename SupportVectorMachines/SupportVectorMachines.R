@@ -1,5 +1,5 @@
 ###########################################################################################################################
-# Section II. Support Vector Machines		
+# Support Vector Machines		
 # Study the SVM  R coding/tutorials at the below links:
 # (a) http://www.svm-tutorial.com/2014/10/support-vector-regression-r/
 # (b) http://www.r-bloggers.com/learning-kernels-svm/
@@ -172,9 +172,9 @@ table(svm_prediction_iris, testing_set_iris$Species)
 mean(svm_prediction_iris == testing_set_iris$Species)
 
 
-####################################
-#Question 2 - Part 2: Mushroom Data#
-####################################
+#################################################
+#Repeat for a different dataset - Mushroom Data#
+#################################################
 ###################################################################################################################################
 # Install and call the appropriate library packages
 ###################################################################################################################################
