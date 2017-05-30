@@ -1,5 +1,5 @@
 ###################################################################################################################################
-#7.	Study the KNN Algorithm, and how it is used to do missing value imputation, here.     
+# Study the KNN Algorithm, and how it is used to do missing value imputation, here.     
 # Then, Using the KNN Algorithm, estimate for the missing value (?) for the Lease Prices XLS dataset.
 ###################################################################################################################################
 
