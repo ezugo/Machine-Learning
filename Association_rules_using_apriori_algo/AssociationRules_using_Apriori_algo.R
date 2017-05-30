@@ -1,6 +1,6 @@
 ###################################################################################################################################
-#   	For the same data set, construct about 10 to 15 Association Rules which associate the key features with the animal type 
-#     or other features together.    
+#   For the same data set, construct about 10 to 15 Association Rules which associate the key features with the animal type 
+#   or other features together.    
 ###################################################################################################################################
 
 ###################################################################################################################################
