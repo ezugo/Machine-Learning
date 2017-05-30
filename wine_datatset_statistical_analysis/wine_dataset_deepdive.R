@@ -1,6 +1,6 @@
 ##################################################################################################################################################
 ##################################################################################################################################################
-# Study/Practice R Basics from the R Primer  						[10 points]
+# Study/Practice R Basics from the R Primer  						
 # Load the Wine Data Set available here as a CSV file into R and conduct 10 significant statistical operations as below, on any (combination) of 
 # continuous variables (i. e., Numerical) from the dataset.  
 # https://archive.ics.uci.edu/ml/datasets/Wine       
