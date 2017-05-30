@@ -1,5 +1,5 @@
 ###########################################################################################################################
-# Section V: Principal Components Analysis  
+# Principal Components Analysis  
 # Study the Principal Components Analysis tutorial in R here:  http://www.r-bloggers.com/computing-and-visualizing-pca-in-r/ 
 # Then conduct PCA on the modified States.XX data set.  Explain what PCA is in the context of this data set, what it does, 
 # and interpret your results.  Why is it useful?
