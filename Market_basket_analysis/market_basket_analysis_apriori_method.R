@@ -21,9 +21,7 @@ library(datasets)
 ###################################################################################################################################
 
 # Read in the data
-Market_Basket = read.csv("C:/Users/enwosu/Desktop/UW_Course/ML_2017/ML-310/HW2/SuperMarketData.csv", header=TRUE, sep=",")
-
-#Market_Basket = read.transactions(file = "C:/Users/enwosu/Desktop/UW_Course/ML_2017/ML-310/HW2/SuperMarketData.csv", format="basket", sep = " ")
+Market_Basket = read.csv("C:/Users/Desktop/UW_Course/ML_2017/ML-310/HW2/SuperMarketData.csv", header=TRUE, sep=",")
 
 # Table headers appear to be messed up. So, re-wrtie the table column header names
 #colnames(Market_Basket) <- c('animal name', 'hair', 'feathers', 'eggs', 'milk', 'airborne', 'aquatic', 'predator', 'toothed', 'backbone', 'breathes', 'venomous', 'fins', 'legs', 'tail', 'domestic', 'catsize', 'type')
