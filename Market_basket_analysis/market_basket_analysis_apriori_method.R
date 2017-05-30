@@ -1,5 +1,5 @@
 ###################################################################################################################################
-# 8. Study the Apriori algorithm data mining and how discovers items that are frequently associated 
+# Study the Apriori algorithm data mining and how discovers items that are frequently associated 
 # together, for Market Basket Analysis. http://software.ucv.ro/~cmihaescu/ro/teaching/AIR/docs/Lab8-Apriori.pdf
 # page 1 -2    (small dataset from Supermarket: Transaction ID/ milk /Bread /butter /beer/ 
 # Conduct Market Basket Analysis on the same market data set using R.  Compare your notes.                          
