@@ -1,6 +1,7 @@
 ###########################################################################################################################
-# Section I. Text mining case study
-#1.	Study this Text mining case study	
+# Text mining case study
+# 
+# Study this Text mining case study	
 # https://rstudio-pubs-static.s3.amazonaws.com/97469_c56e716bf5ee49cc84db0ff6d5d2ddaa.html
 # Then, conduct your own Text Analysis on the textmining.zip data set provided in Canvas and provide explanation of 
 # results.  Pl. make sure to include these sections:
