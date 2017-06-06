@@ -20,8 +20,7 @@
 #  |  STEP 7:  Applying the recommender model on the test set
 #  |  STEP 8:  Compare the number of times each movie got recommended using the IBCF and UBCF
 #  |  STEP 9:  Call out the name of the movie instead of just the ID
-#  |  STEP 10: Compare predicted and actual results
-#  |  STEP 11: Model predictive accuracy based on the test data 
+#  |  STEP 10: Recommender System model evaluation 
 #  |------------------------------------------------------------------
 
 #  |------------------------------------------------------------------
@@ -273,15 +272,6 @@ setnames(MovieLense_item, c('MovieID', 'MovieName', 'ReleaseDate', 'URL', as.cha
 head(MovieLense_item)
 
 #  *------------------------------------------------------------------*
-#  STEP 10: Compare predicted and actual results
+#  STEP 10: Recommender System model evaluation (TBD)
 #  *------------------------------------------------------------------*
-
-#  *------------------------------------------------------------------*
-#  STEP 11: Model predictive accuracy based on the test data 
-#  *------------------------------------------------------------------*
-
-
-
-
-
 
