@@ -4,7 +4,7 @@
 #  |DATE:           06/05/17
 #  |CREATED BY:     Ezugo Nwosu 
 #  |DATA SoURCE:    http://grouplens.org/datasets/movielens/   
-#  |DATA FILE Name: MOvieLens
+#  |DATA FILE Name: MovieLens
 #  |----------------------------------------------------------------
 
 
