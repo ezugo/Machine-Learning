@@ -19,7 +19,7 @@
 #  |  STEP 6:  Train the recommender model
 #  |  STEP 7:  Applying the recommender model on the test set
 #  |  STEP 8:  Compare the number of times each movie got recommended using the IBCF and UBCF
-#  |  STEP 9:  Call out the name of the movie instead of just the ID
+#  |  STEP 9:  Generate the movie id -> name lookup referrence table 
 #  |  STEP 10: Recommender System model evaluation 
 #  |------------------------------------------------------------------
 
@@ -254,7 +254,7 @@ grid.arrange(plot1, plot2, ncol=2)
 
 
 #  *------------------------------------------------------------------*
-#  STEP 9: Call out the name of the movie instead of just the ID
+#  STEP 9: Generate the movie id -> name lookup referrence table 
 #  *------------------------------------------------------------------*
 # Read in the movie genre's matix (u.genre) and use it to populate the the genre portion of the movie item matrix (u.item)
 MovieLense_genres <- as.data.table(read.table("C:/Users/enwosu/Documents/RStudio_WorkFile/ML-R-Code/RecommenderSystems/ml-100k/u.genre", header=FALSE, sep = '|',  quote = ""))
@@ -271,6 +271,7 @@ corner(MovieLense_item)
 setnames(MovieLense_item, c('MovieID', 'MovieName', 'ReleaseDate', 'URL', as.character(MovieLense_genres$Name)))
 head(MovieLense_item)
 
+Movie_Reference_Lookup_Table = MovieLense_item
 #  *------------------------------------------------------------------*
 #  STEP 10: Recommender System model evaluation (TBD)
 #  *------------------------------------------------------------------*
