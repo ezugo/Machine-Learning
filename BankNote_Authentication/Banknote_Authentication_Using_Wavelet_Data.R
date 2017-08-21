@@ -45,7 +45,7 @@
 #  |  STEP 12: Calculate the AUC metric
 #  |  STEP 13: Repeat steps 6, 8 and 10 - 12 using Random Forests (RF)
 #  |  STEP 14: Repeat steps 6, 8 and 10 - 12 using Support Vector Machines (SVM)
-#  |  STEP 15: Compare AUC and Mean for NN, RF and NN models
+#  |  STEP 15: Compare AUC and Mean for NN, RF and SVM models
 #  |------------------------------------------------------------------
 
 #  |------------------------------------------------------------------
