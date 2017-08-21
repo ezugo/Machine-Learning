@@ -17,6 +17,13 @@
 #  |to the investigated object gray-scale pictures with a resolution  
 #  |of about 660 dpi were gained. Wavelet Transform tools were used 
 #  |to extract features from images.
+#  | 
+#  | So essentially, the following was done:
+#  | (1) Images were taken of 1372 banknotes, some counterfeit and some genuine. 
+#  | (2) Wavelet tranformation tools were used to extract the following descriptive 
+#  |     features of the images: Variance, Skewness, Kurtosis, Entropy. 
+#  | (3) We also have the true label for whether or not a banknote is genuine 
+#  |     (Yes = 1, No = 0). 
 #  |----------------------------------------------------------------
 
 #  ------------------------------------------------------------------
@@ -57,6 +64,7 @@
 #  |  4:  http://bme2.aut.ac.ir/mhmoradi/wavelet/Reference%20Book/In%20sight%20into%20wavelets%20from%20theory%20to%20practice%20,%20Soman%20K.P.%20,Ramachandran%20K.I.%20,%20Ch.1-Ch.9.pdf
 #  |  5:  http://www-scf.usc.edu/~hbalan/wavelets.pdf
 #  |  6:  https://sundoc.bibliothek.uni-halle.de/diss-online/02/03H033/t4.pdf
+#  |  7:  http://www.stat.cmu.edu/~rnugent/PCMI2016/code.html#banknote
 #  |------------------------------------------------------------------
 
 #  *------------------------------------------------------------------*
@@ -157,13 +165,13 @@ par(mfrow=c(1,1))
 # Next, let's visualize some of the variables based on their class distribution
 # For some reason, par(mfrow=c(n,m)) does not work for ggplot, so we will use "grid.arrange" below
 
-variance_vs_curtosis <- ggplot(Bank_Data, aes(x = Variance_of_Wavelet_Transformed_image, y = Curtosis_of_Wavelet_Transformed_image, colour = as.factor(Class))) + geom_point(size=3) + ggtitle("Bank_Data")
-variance_vs_skewness <- ggplot(Bank_Data, aes(x = Variance_of_Wavelet_Transformed_image, y = Skewness_of_Wavelet_Transformed_image, colour = as.factor(Class))) + geom_point(size=3) + ggtitle("Bank_Data")
-variance_vs_entropy  <- ggplot(Bank_Data, aes(x = Variance_of_Wavelet_Transformed_image, y = Entropy_of_image, colour = as.factor(Class))) + geom_point(size=3) + ggtitle("Bank_Data")
-curtosis_vs_skewness <- ggplot(Bank_Data, aes(x = Curtosis_of_Wavelet_Transformed_image, y = Skewness_of_Wavelet_Transformed_image, colour = as.factor(Class))) + geom_point(size=3) + ggtitle("Bank_Data")
-curtosis_vs_entropy  <- ggplot(Bank_Data, aes(x = Curtosis_of_Wavelet_Transformed_image, y = Entropy_of_image, colour = as.factor(Class))) + geom_point(size=3) + ggtitle("Bank_Data")
-skewness_vs_entropy  <- ggplot(Bank_Data, aes(x = Skewness_of_Wavelet_Transformed_image, y = Entropy_of_image, colour = as.factor(Class))) + geom_point(size=3) + ggtitle("Bank_Data")
-grid.arrange(variance_vs_curtosis,variance_vs_skewness,variance_vs_entropy,curtosis_vs_skewness,curtosis_vs_entropy,skewness_vs_entropy, ncol=1, top=textGrob("Multiple Plots", gp=gpar(fontsize=12, font = 2)))
+variance_vs_curtosis <- ggplot(Bank_Data, aes(x = Variance_of_Wavelet_Transformed_image, y = Curtosis_of_Wavelet_Transformed_image, colour = as.factor(Class))) + geom_point(size=3) + ggtitle("variance_vs_curtosis") + xlab("Variance") + ylab("Curtosis")
+variance_vs_Skewness <- ggplot(Bank_Data, aes(x = Variance_of_Wavelet_Transformed_image, y = Skewness_of_Wavelet_Transformed_image, colour = as.factor(Class))) + geom_point(size=3) + ggtitle("variance_vs_Skewness") + xlab("Variance") + ylab("Skewness")
+variance_vs_Entropy  <- ggplot(Bank_Data, aes(x = Variance_of_Wavelet_Transformed_image, y = Entropy_of_image, colour = as.factor(Class))) + geom_point(size=3) + ggtitle("variance_vs_Entropy") + xlab("Variance") + ylab("entropy")
+curtosis_vs_Skewness <- ggplot(Bank_Data, aes(x = Curtosis_of_Wavelet_Transformed_image, y = Skewness_of_Wavelet_Transformed_image, colour = as.factor(Class))) + geom_point(size=3) + ggtitle("curtosis_vs_Skewness") + xlab("Curtosis") + ylab("Skewness")
+curtosis_vs_Entropy  <- ggplot(Bank_Data, aes(x = Curtosis_of_Wavelet_Transformed_image, y = Entropy_of_image, colour = as.factor(Class))) + geom_point(size=3) + ggtitle("curtosis_vs_Entropy") + xlab("Variance") + ylab("Entropy")
+skewness_vs_Entropy  <- ggplot(Bank_Data, aes(x = Skewness_of_Wavelet_Transformed_image, y = Entropy_of_image, colour = as.factor(Class))) + geom_point(size=3) + ggtitle("skewness_vs_Entropy") + xlab("Variance") + ylab("Entropy")
+grid.arrange(variance_vs_curtosis,variance_vs_Skewness,variance_vs_Entropy,curtosis_vs_Skewness,curtosis_vs_Entropy,skewness_vs_Entropy, ncol=1, top=textGrob("Multiple Plots", gp=gpar(fontsize=12, font = 2)))
 
 
 # Next, let's take a look at some conditioned plots (graphical representations that 
@@ -275,7 +283,7 @@ roc = function(pred, dat){
 }
 
 
-roc_neural_net = plot(roc(predicted_classes_neural_net,testing_data$Class))
+roc_neural_net = plot(roc(predicted_classes_neural_net,testing_data$Class), main = "NN ROC")
 
 
 ########################################################################################################
@@ -319,7 +327,7 @@ random_forest_predictions <- predict(random_forest_bank_note, testing_data)
 table(random_forest_predictions, testing_data$Class)
 
 # Plot the ROC curve for this classification (random forest)
-roc_random_forest <- plot(roc(random_forest_predictions,testing_data$Class))
+roc_random_forest <- plot(roc(random_forest_predictions,testing_data$Class), main = "RF ROC")
 
 # Calculate the AUC metric (random forest)
 auc_random_forest <- auc(random_forest_predictions,testing_data$Class)
@@ -373,7 +381,7 @@ plot(svm_prediction)
 table(svm_prediction, testing_data$Class)
 
 # Plot the ROC curve for this classification (random forest)
-roc_SVM <- plot(roc(svm_prediction,testing_data$Class))
+roc_SVM <- plot(roc(svm_prediction,testing_data$Class), main = "SVM ROC")
 
 # Calculate the AUC metric (random forest)
 auc_svm <- auc(svm_prediction,testing_data$Class)
